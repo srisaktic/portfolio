@@ -4,7 +4,6 @@ import {
   ArrowDownRight,
   ArrowUpRight,
   Check,
-  ChevronRight,
   Code2,
   Database,
   GraduationCap,
@@ -44,15 +43,15 @@ const projects = [
 const experience = [
   {
     period: 'June 2026 — Present', role: 'Software Engineer', company: 'Nestlé', location: 'VA, USA',
-    points: ['Collaborate with data scientists on a demand-forecasting project, translating feature requirements into reliable data pipelines and validating input datasets with Pandas.', 'Run sanity checks and range validation on model outputs before production release, flagging anomalies to maintain prediction reliability.', 'Ship FastAPI endpoints that serve model predictions to downstream planning systems, with request validation and error handling.'],
+    description: 'Supporting data science and demand-forecasting workflows through data analysis, pipeline development, data validation, and production model-output checks, while collaborating closely with data scientists.',
   },
   {
     period: 'August 2025 — May 2026', role: 'AI / Machine Learning Engineer', company: 'AIONIX11', location: 'CT, USA',
-    points: ['Built an end-to-end churn prediction pipeline for a retail e-commerce client, identifying at-risk customers and automating supervised model training.', 'Built a CI/CD pipeline that ran unit tests, linting, and engineering standards checks across AWS and Docker deployments.', 'Benchmarked Logistic Regression, Random Forest, and XGBoost, selecting XGBoost after handling class imbalance with weighted training.'],
+    description: 'Built end-to-end machine learning solutions, covering data preparation, model development and evaluation, API integration, Docker deployment, AWS, and CI/CD workflows.',
   },
   {
     period: 'February 2022 — May 2023', role: 'Associate Software Engineer', company: 'Hexaware Technologies Ltd', location: 'Chennai, India',
-    points: ['Developed and maintained backend application modules using Java, Spring Boot, REST APIs, and SQL.', 'Reduced response times by approximately 25% through query optimization and delivered 30+ JUnit test cases while resolving SonarQube findings.'],
+    description: 'Worked on backend software development and production support, using Java, Spring Boot, REST APIs, and SQL to build, maintain, and troubleshoot enterprise applications.',
   },
 ];
 
@@ -62,7 +61,7 @@ const education = [
     detail: 'Coursework in machine learning, deep learning, NLP, and data engineering. Capstone focused on applied AI systems.',
   },
   {
-    degree: 'B.E. in Electronics & Communication Engineering', school: 'KCG College of Technology', location: 'Chennai, India', period: '2017 — 2021',
+    degree: 'B.E. in Electronics & Communication Engineering', school: 'KCG College of Technology', location: 'Chennai, India', period: '2018 — 2022',
     detail: 'Foundation in engineering, mathematics, and programming that led into software engineering and data science.',
   },
 ];
@@ -186,7 +185,7 @@ function App() {
           style={{
             backgroundImage:
               'linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px)',
-            backgroundSize: '46px 46px',
+            backgroundSize: '37px 37px',
             maskImage: 'radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%)',
             WebkitMaskImage: 'radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%)',
           }}
@@ -199,12 +198,12 @@ function App() {
           className="absolute inset-0 hidden opacity-80 lg:block"
           style={{
             background:
-              'radial-gradient(600px circle at var(--spot-x, 50%) var(--spot-y, 20%), rgba(255,255,255,0.05), transparent 70%)',
+              'radial-gradient(480px circle at var(--spot-x, 50%) var(--spot-y, 20%), rgba(255,255,255,0.05), transparent 70%)',
           }}
         />
       </div>
 
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#070b12]/90 backdrop-blur-xl">
+      <header className="relative z-50 border-b border-white/10 bg-[#070b12]/90 backdrop-blur-xl">
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#e0ae47]/60 to-transparent" />
         <nav className="mx-auto flex max-w-[1440px] items-center justify-between gap-6 px-6 py-5 lg:px-16" aria-label="Main navigation">
           <a href="#top" className="group flex items-center gap-3" onClick={closeMenu}>
@@ -233,7 +232,7 @@ function App() {
           <img
             src="/hero-photo.png"
             alt="Sri Sakticharan"
-            className="animate-glow-pulse relative mx-auto w-full max-w-[360px] sm:max-w-[440px] lg:max-w-[560px]" />
+            className="animate-glow-pulse relative mx-auto w-full max-w-[290px] sm:max-w-[350px] lg:max-w-[450px]" />
         </div>
 
         <Reveal className="order-2 text-center lg:text-left" delay={0}>
@@ -254,7 +253,7 @@ function App() {
             <div className="relative rounded-[2rem] bg-[#102b36] p-7 text-white shadow-2xl shadow-black/40 sm:p-9">
               <div className="mb-6 flex items-center justify-between"><span className="text-xs uppercase tracking-[0.22em] text-[#e0ae47]">Currently</span><span className="flex items-center gap-2 text-xs text-white/60"><span className="h-2 w-2 animate-pulse rounded-full bg-[#8fd1a4]" /> Open to opportunities</span></div>
               <p className="font-display text-2xl leading-tight">Making data feel less like a problem and more like a possibility.</p>
-              <div className="mt-6 flex items-center gap-2 text-sm text-white/60"><MapPin size={16} className="text-[#e0ae47]" /> New York City · open to remote</div>
+              <div className="mt-6 flex items-center gap-2 text-sm text-white/60"><MapPin size={16} className="text-[#e0ae47]" /> New York City</div>
             </div>
           </div>
         </Reveal>
@@ -334,9 +333,7 @@ function App() {
                     </div>
                     <p className="text-xs font-bold uppercase tracking-[0.12em] text-white/45">{item.period}</p>
                   </div>
-                  <ul className="space-y-3 text-sm leading-7 text-white/65">
-                    {item.points.map((point) => <li key={point} className="flex gap-3"><ChevronRight className="mt-1 shrink-0 text-[#8fd1a4]" size={16} />{point}</li>)}
-                  </ul>
+                  <p className="text-sm leading-7 text-white/65">{item.description}</p>
                   {index < experience.length - 1 && <div className="my-10 h-px bg-white/10" />}
                 </Reveal>
               ))}
