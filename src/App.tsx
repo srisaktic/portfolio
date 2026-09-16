@@ -203,28 +203,30 @@ function App() {
         />
       </div>
 
-      <header className="relative z-50 border-b border-white/10 bg-[#070b12]/90 backdrop-blur-xl">
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#e0ae47]/60 to-transparent" />
-        <nav className="mx-auto flex max-w-[1440px] items-center justify-between gap-6 px-6 py-5 lg:px-16" aria-label="Main navigation">
-          <a href="#top" className="group flex items-center gap-3" onClick={closeMenu}>
-            <span className="grid h-11 w-11 place-items-center rounded-full bg-[#e0ae47] text-base font-bold text-[#070b12] shadow-[0_0_0_4px_rgba(224,174,71,0.15)] transition-transform group-hover:rotate-12">SK</span>
-            <span className="hidden text-base font-semibold tracking-[0.2em] sm:block">SRI SAKTICHARAN</span>
-          </a>
-          <button className="rounded-lg p-2 text-[#eef3f6] md:hidden" onClick={() => setMenuOpen((open) => !open)} aria-label="Toggle navigation">
-            {menuOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
-          <div className={`${menuOpen ? 'absolute left-0 right-0 top-full flex border-b border-white/10 bg-[#0a1018] px-6 py-6 shadow-xl' : 'hidden'} flex-col gap-5 text-base font-semibold md:static md:flex md:flex-row md:items-center md:gap-9 md:border-0 md:bg-transparent md:p-0 md:shadow-none`}>
-            <a href="#about" onClick={closeMenu} className="nav-link">About</a>
-            <a href="#work" onClick={closeMenu} className="nav-link">Projects</a>
-            <a href="#experience" onClick={closeMenu} className="nav-link">Experience</a>
-            <a href="#education" onClick={closeMenu} className="nav-link">Education</a>
-            <a href="#skills" onClick={closeMenu} className="nav-link">Skills</a>
-            <a href="#contact" onClick={closeMenu} className="btn-shine rounded-full bg-[#e0ae47] px-6 py-3.5 text-center text-[#070b12] transition hover:bg-[#4fd8cf] hover:text-[#070b12]">Let's talk <ArrowUpRight className="ml-1 inline" size={16} /></a>
-          </div>
-        </nav>
+      <header className="fixed inset-x-0 top-4 z-50 px-4 sm:px-6 lg:top-6 lg:px-10">
+        <div className="relative mx-auto max-w-[1200px] rounded-2xl border border-white/10 bg-[#0a1018]/85 shadow-[0_12px_40px_rgba(0,0,0,0.5)] backdrop-blur-xl">
+          <div className="pointer-events-none absolute inset-x-6 bottom-0 h-px bg-gradient-to-r from-transparent via-[#e0ae47]/60 to-transparent" />
+          <nav className="flex items-center justify-between gap-6 px-5 py-4 lg:px-8" aria-label="Main navigation">
+            <a href="#top" className="group flex items-center gap-3" onClick={closeMenu}>
+              <span className="grid h-11 w-11 place-items-center rounded-full bg-[#e0ae47] text-base font-bold text-[#070b12] shadow-[0_0_0_4px_rgba(224,174,71,0.15)] transition-transform group-hover:rotate-12">SK</span>
+              <span className="hidden text-base font-semibold tracking-[0.2em] sm:block">SRI SAKTICHARAN</span>
+            </a>
+            <button className="rounded-lg p-2 text-[#eef3f6] md:hidden" onClick={() => setMenuOpen((open) => !open)} aria-label="Toggle navigation">
+              {menuOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+            <div className={`${menuOpen ? 'absolute left-0 right-0 top-full flex rounded-b-2xl border-x border-b border-white/10 bg-[#0a1018] px-6 py-6 shadow-xl' : 'hidden'} flex-col gap-5 text-base font-semibold md:static md:flex md:flex-row md:items-center md:gap-9 md:rounded-none md:border-0 md:bg-transparent md:p-0 md:shadow-none`}>
+              <a href="#about" onClick={closeMenu} className="nav-link">About</a>
+              <a href="#work" onClick={closeMenu} className="nav-link">Projects</a>
+              <a href="#experience" onClick={closeMenu} className="nav-link">Experience</a>
+              <a href="#education" onClick={closeMenu} className="nav-link">Education</a>
+              <a href="#skills" onClick={closeMenu} className="nav-link">Skills</a>
+              <a href="#contact" onClick={closeMenu} className="btn-shine rounded-full bg-[#e0ae47] px-6 py-3.5 text-center text-[#070b12] transition hover:bg-[#4fd8cf] hover:text-[#070b12]">Let's talk <ArrowUpRight className="ml-1 inline" size={16} /></a>
+            </div>
+          </nav>
+        </div>
       </header>
 
-      <main id="top" className="relative">
+      <main id="top" className="relative pt-28 lg:pt-32">
       <section className="relative mx-auto grid max-w-[1440px] items-center gap-16 px-6 pb-24 pt-16 lg:grid-cols-[1.05fr_1fr] lg:gap-10 lg:px-12 lg:pt-20">
         <div className="relative order-1 mx-auto w-full max-w-md animate-fade-in lg:mx-0 lg:max-w-none">
           <div className="pointer-events-none absolute left-1/2 top-1/2 h-[34rem] w-[28rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(79,216,207,0.32),transparent_60%)] blur-3xl" />
