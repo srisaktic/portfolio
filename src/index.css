@@ -73,6 +73,11 @@
   0%, 100% { transform: translate(-8%, -6%) rotate(8deg); }
   50% { transform: translate(8%, 6%) rotate(8deg); }
 }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee { animation: marquee 18s linear infinite; }
 @keyframes text-shine {
   from { background-position: 180% 0; }
   to { background-position: -60% 0; }
@@ -102,7 +107,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-up, .animate-fade-in, .animate-glow-pulse, .animate-float-slow, .animate-float-slower,
-  .ambient-sweep, .text-shine-reveal {
+  .ambient-sweep, .text-shine-reveal, .animate-marquee {
     animation: none;
   }
   .text-shine-reveal {

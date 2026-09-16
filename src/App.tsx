@@ -49,26 +49,26 @@ const projects = [
 
 const experience = [
   {
-    period: 'June 2026 — Present', role: 'Software Engineer', company: 'Nestlé', location: 'VA, USA',
+    period: 'June 2026 — Present', role: 'Software Engineer', company: 'Nestlé', location: 'VA, USA', logo: 'NE', color: '#e0ae47',
     description: 'Supporting data science and demand-forecasting workflows through data analysis, pipeline development, data validation, and production model-output checks, while collaborating closely with data scientists.',
   },
   {
-    period: 'August 2025 — May 2026', role: 'AI / Machine Learning Engineer', company: 'AIONIX11', location: 'CT, USA',
+    period: 'August 2025 — May 2026', role: 'AI / Machine Learning Engineer', company: 'AIONIX11', location: 'CT, USA', logo: 'AX', color: '#4fd8cf',
     description: 'Built end-to-end machine learning solutions, covering data preparation, model development and evaluation, API integration, Docker deployment, AWS, and CI/CD workflows.',
   },
   {
-    period: 'February 2022 — May 2023', role: 'Associate Software Engineer', company: 'Hexaware Technologies Ltd', location: 'Chennai, India',
-    description: 'Worked on backend software development and production support, using Java, Spring Boot, REST APIs, and SQL to build, maintain, and troubleshoot enterprise applications.',
+    period: 'February 2022 — May 2023', role: 'Associate Software Engineer', company: 'Hexaware Technologies Ltd', location: 'Chennai, India', logo: 'HX', color: '#8fd1a4',
+    description: 'Developed and supported Python backend applications using REST APIs and SQL, working across application development, database integration, testing, and production support and supporting CI/CD releases.',
   },
 ];
 
 const education = [
   {
-    degree: 'M.S. in Data Science', school: 'New York Institute of Technology (NYIT)', location: 'New York, USA', period: '2023 — 2025',
+    degree: 'M.S. in Data Science', school: 'New York Institute of Technology (NYIT)', location: 'New York, USA', period: '2023 — 2025', color: '#4fd8cf',
     detail: 'Coursework in machine learning, deep learning, NLP, and data engineering. Capstone focused on applied AI systems.',
   },
   {
-    degree: 'B.E. in Electronics & Communication Engineering', school: 'KCG College of Technology', location: 'Chennai, India', period: '2018 — 2022',
+    degree: 'B.E. in Electronics & Communication Engineering', school: 'KCG College of Technology', location: 'Chennai, India', period: '2018 — 2022', color: '#e0ae47',
     detail: 'Foundation in engineering, mathematics, and programming that led into software engineering and data science.',
   },
 ];
@@ -269,8 +269,10 @@ function App() {
         </Reveal>
       </section>
 
-      <section id="about" className="border-y border-white/10 bg-white/[0.03]">
-        <div className="mx-auto max-w-[820px] px-6 py-16 lg:px-12">
+      <section id="about" className="relative bg-white/[0.03]">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#070b12] to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#070b12] to-transparent" />
+        <div className="relative mx-auto max-w-[820px] px-6 py-16 lg:px-12">
           <Reveal><p className="section-kicker">01 / About</p><h2 className="section-title">Building intelligent systems.<br /><span>From data to deployment.</span></h2></Reveal>
           <Reveal delay={100} className="mt-8">
             <p className="text-lg leading-8 text-white/75">I’m an AI/ML Engineer with a software engineering foundation, experienced across data analysis, machine learning, and production workflows. My journey has evolved from backend engineering to applied ML, and I currently support data science and forecasting workflows at Nestlé.</p>
@@ -327,26 +329,35 @@ function App() {
         </div>
       </section>
 
-      <section id="experience" className="border-y border-white/10 bg-white/[0.03]">
-        <div className="mx-auto max-w-[1440px] px-6 py-20 lg:px-12 lg:py-28">
+      <section id="experience" className="relative bg-white/[0.03]">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#070b12] to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#070b12] to-transparent" />
+        <div className="relative mx-auto max-w-[1440px] px-6 py-20 lg:px-12 lg:py-28">
           <div className="grid gap-14 lg:grid-cols-[0.7fr_1.3fr]">
             <Reveal>
               <p className="section-kicker text-[#e0ae47]">03 / Experience</p>
               <h2 className="section-title text-white">Where I’ve<br /><span className="text-[#8fd1a4]">learned by doing.</span></h2>
               <p className="mt-7 max-w-xs leading-7 text-white/60">A career built across software, machine learning, and the space where both become products.</p>
             </Reveal>
-            <div>
+            <div className="grid gap-5">
               {experience.map((item, index) => (
-                <Reveal key={item.company} delay={index * 100} className="timeline-item">
-                  <div className="mb-3 flex flex-wrap items-baseline justify-between gap-3">
-                    <div>
-                      <h3 className="font-display text-2xl font-semibold">{item.role}</h3>
-                      <p className="mt-1 text-sm text-[#e0ae47]">{item.company} · {item.location}</p>
+                <Reveal key={item.company} delay={index * 100}>
+                  <div className="rounded-2xl border border-white/10 bg-[#0a1018] p-6 sm:p-7">
+                    <div className="flex flex-wrap items-start justify-between gap-4">
+                      <div className="flex items-center gap-4">
+                        <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl text-sm font-bold" style={{ backgroundColor: item.color, color: '#102b36' }}>{item.logo}</span>
+                        <div>
+                          <h3 className="font-display text-xl font-semibold text-white">{item.company}</h3>
+                          <p className="mt-0.5 text-sm font-semibold" style={{ color: item.color }}>{item.role}</p>
+                        </div>
+                      </div>
+                      <div className="flex flex-col items-end gap-1.5">
+                        <span className="rounded-full bg-white/5 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white/60">{item.period}</span>
+                        <span className="flex items-center gap-1 text-xs text-white/40"><MapPin size={12} /> {item.location}</span>
+                      </div>
                     </div>
-                    <p className="text-xs font-bold uppercase tracking-[0.12em] text-white/45">{item.period}</p>
+                    <p className="mt-5 border-t border-white/10 pt-4 text-sm leading-7 text-white/65">{item.description}</p>
                   </div>
-                  <p className="text-sm leading-7 text-white/65">{item.description}</p>
-                  {index < experience.length - 1 && <div className="my-10 h-px bg-white/10" />}
                 </Reveal>
               ))}
             </div>
@@ -354,27 +365,34 @@ function App() {
         </div>
       </section>
 
-      <section id="education" className="border-y border-white/10 bg-white/[0.03]">
-        <div className="mx-auto max-w-[1440px] px-6 py-20 lg:px-12 lg:py-28">
+      <section id="education" className="relative bg-white/[0.03]">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#070b12] to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#070b12] to-transparent" />
+        <div className="relative mx-auto max-w-[1440px] px-6 py-20 lg:px-12 lg:py-28">
           <div className="grid gap-14 lg:grid-cols-[0.7fr_1.3fr]">
             <Reveal>
               <p className="section-kicker">04 / Education</p>
               <h2 className="section-title">Built on<br /><span>strong foundations.</span></h2>
             </Reveal>
-            <div>
-              {education.map((item, index) => (
-                <Reveal key={item.degree} delay={index * 100} className="timeline-item">
-                  <div className="mb-3 flex flex-wrap items-baseline justify-between gap-3">
-                    <div>
-                      <h3 className="font-display text-2xl font-semibold">{item.degree}</h3>
-                      <p className="mt-1 flex items-center gap-2 text-sm text-[#4fd8cf]"><GraduationCap size={16} /> {item.school} · {item.location}</p>
+            <div className="relative">
+              <div className="absolute bottom-2 left-[23px] top-2 w-px bg-white/10" />
+              <div className="space-y-9">
+                {education.map((item, index) => (
+                  <Reveal key={item.degree} delay={index * 100} className="relative flex gap-6">
+                    <span className="relative z-10 grid h-12 w-12 shrink-0 place-items-center rounded-full border-4 border-[#0d141d]" style={{ backgroundColor: item.color }}>
+                      <GraduationCap size={19} className="text-[#102b36]" />
+                    </span>
+                    <div className="flex-1 pb-1 pt-1.5">
+                      <div className="flex flex-wrap items-center justify-between gap-3">
+                        <h3 className="font-display text-xl font-semibold text-white">{item.degree}</h3>
+                        <span className="text-xs font-bold uppercase tracking-[0.12em] text-white/40">{item.period}</span>
+                      </div>
+                      <p className="mt-1 text-sm font-semibold" style={{ color: item.color }}>{item.school} · {item.location}</p>
+                      <p className="mt-3 text-sm leading-7 text-white/60">{item.detail}</p>
                     </div>
-                    <p className="text-xs font-bold uppercase tracking-[0.12em] text-white/50">{item.period}</p>
-                  </div>
-                  <p className="text-sm leading-7 text-white/55">{item.detail}</p>
-                  {index < education.length - 1 && <div className="my-10 h-px bg-white/10" />}
-                </Reveal>
-              ))}
+                  </Reveal>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -394,17 +412,43 @@ function App() {
         </div>
       </section>
 
-      <section id="contact" className="bg-[#e0ae47]">
-        <div className="mx-auto max-w-[1440px] px-6 py-20 lg:px-12 lg:py-28">
+      <section id="contact" className="relative overflow-hidden bg-[#e0ae47]">
+        <div className="overflow-hidden border-b border-[#102b36]/15 bg-[#102b36] py-3">
+          <div className="flex w-max animate-marquee items-center gap-10 whitespace-nowrap">
+            {[0, 1].map((dup) => (
+              <div key={dup} className="flex shrink-0 items-center gap-10 pr-10">
+                {['Open to AI/ML roles', 'GenAI & Agentic AI', 'Data Science', "Let’s build something great"].map((t) => (
+                  <span key={t} className="flex items-center gap-10 text-xs font-bold uppercase tracking-[0.3em] text-[#e0ae47]/90">
+                    {t}<span className="h-1 w-1 rounded-full bg-[#4fd8cf]" />
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/15 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-28 left-1/4 h-72 w-72 rounded-full bg-[#102b36]/10 blur-3xl" />
+
+        <div className="relative mx-auto max-w-[1440px] px-6 py-20 lg:px-12 lg:py-28">
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
             <Reveal>
               <p className="section-kicker text-[#102b36]/65">06 / Contact</p>
               <h2 className="section-title text-[#102b36]">Let’s build something<br /><span className="text-white">that matters.</span></h2>
               <p className="mt-7 max-w-md leading-7 text-[#102b36]/70">I’m open to AI/ML, Data Science, and GenAI opportunities where I can build, learn, and create meaningful impact. If you think I’d be a good fit for your team or project, I’d love to hear from you.</p>
-              <div className="mt-9 flex flex-col gap-3 text-sm font-semibold text-[#102b36]">
-                <a href="mailto:sri.sakticharan.kumar@gmail.com" className="contact-link"><Mail size={17} /> sri.sakticharan.kumar@gmail.com</a>
-                <a href="https://www.linkedin.com/in/sri-sakticharan" target="_blank" rel="noreferrer" className="contact-link"><Linkedin size={17} /> linkedin.com/in/sri-sakticharan</a>
-                <a href="https://github.com/srisaktic" target="_blank" rel="noreferrer" className="contact-link"><Github size={17} /> github.com/srisaktic</a>
+              <div className="mt-9 flex flex-col">
+                <a href="mailto:sri.sakticharan.kumar@gmail.com" className="group flex items-center justify-between gap-4 border-b border-[#102b36]/15 py-3.5 text-sm font-semibold text-[#102b36] transition hover:border-[#102b36]/40">
+                  <span className="flex items-center gap-3"><span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#102b36]/10 transition group-hover:bg-[#102b36] group-hover:text-[#e0ae47]"><Mail size={15} /></span> sri.sakticharan.kumar@gmail.com</span>
+                  <ArrowUpRight size={16} className="shrink-0 opacity-40 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100" />
+                </a>
+                <a href="https://www.linkedin.com/in/sri-sakticharan" target="_blank" rel="noreferrer" className="group flex items-center justify-between gap-4 border-b border-[#102b36]/15 py-3.5 text-sm font-semibold text-[#102b36] transition hover:border-[#102b36]/40">
+                  <span className="flex items-center gap-3"><span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#102b36]/10 transition group-hover:bg-[#102b36] group-hover:text-[#e0ae47]"><Linkedin size={15} /></span> linkedin.com/in/sri-sakticharan</span>
+                  <ArrowUpRight size={16} className="shrink-0 opacity-40 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100" />
+                </a>
+                <a href="https://github.com/srisaktic" target="_blank" rel="noreferrer" className="group flex items-center justify-between gap-4 border-b border-[#102b36]/15 py-3.5 text-sm font-semibold text-[#102b36] transition hover:border-[#102b36]/40">
+                  <span className="flex items-center gap-3"><span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#102b36]/10 transition group-hover:bg-[#102b36] group-hover:text-[#e0ae47]"><Github size={15} /></span> github.com/srisaktic</span>
+                  <ArrowUpRight size={16} className="shrink-0 opacity-40 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100" />
+                </a>
               </div>
             </Reveal>
             <Reveal delay={120}>
