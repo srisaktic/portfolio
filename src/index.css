@@ -17,11 +17,12 @@
   .nav-link { @apply relative w-fit text-white/85 transition-colors hover:text-[#4fd8cf]; }
   .nav-link::after { content: ''; @apply absolute -bottom-2 left-0 h-0.5 w-0 bg-[#e0ae47] transition-all; }
   .nav-link:hover::after { @apply w-full; }
-  .project-card { @apply min-h-[610px] rounded-[1.6rem] p-6 transition duration-300 ease-out will-change-transform hover:shadow-2xl sm:p-8; }
+  .project-card { @apply flex min-h-[460px] flex-col rounded-[1.4rem] p-5 transition duration-300 ease-out will-change-transform hover:shadow-2xl sm:p-6; }
   .project-card.gold { @apply bg-[#e0ae47] text-[#102b36]; }
   .project-card.teal { @apply bg-[#2c8d89] text-white; }
   .project-card.blue { @apply bg-[#2f5fdb] text-white; }
-  .project-number { @apply font-display text-5xl font-semibold leading-none opacity-40; }
+  .project-card.green { @apply bg-[#8fd1a4] text-[#102b36]; }
+  .project-number { @apply font-display text-4xl font-semibold leading-none opacity-40; }
   .stat-number { @apply font-display text-3xl font-semibold text-[#f4f8f7]; }
   .stat-label { @apply mt-1 text-xs uppercase tracking-[0.12em] text-white/50; }
   .timeline-item { @apply border-l-2 border-[#e0ae47]/40 pl-6; }

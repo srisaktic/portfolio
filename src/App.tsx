@@ -3,6 +3,7 @@ import type { MouseEvent as ReactMouseEvent } from 'react';
 import {
   ArrowDownRight,
   ArrowUpRight,
+  Bot,
   Check,
   Code2,
   Database,
@@ -23,20 +24,26 @@ const projects = [
   {
     number: '01', title: 'Finance AI Research Assistant', type: 'Full deployment',
     description: 'A research copilot that combines SEC 10-K filings, earnings transcripts, and live market context to help teams move from questions to defensible insights.',
-    stack: ['Python', 'FastAPI', 'Gemini', 'Docker', 'React'], outcome: 'Multi-agent RAG workflow with source-aware answers',
+    stack: ['Agentic RAG', 'Gemini', 'Qdrant', 'Voyage Embeddings', 'Reranking', 'FastAPI', 'Docker'], outcome: 'Agentic RAG with grounded, source-aware retrieval',
     link: 'https://finance-ai-ui-vercel.vercel.app/', github: 'https://github.com/srisaktic/finance-ai-assistant', accent: 'gold',
   },
   {
     number: '02', title: 'Multimodal Phishing Detection', type: 'Classification system',
     description: 'An ensemble that reads email text and visual layout together, catching the signals traditional text-only filters miss.',
-    stack: ['Python', 'TensorFlow', 'Hugging Face', 'Streamlit', 'Flask'], outcome: 'Text + screenshot classification with a live demo',
+    stack: ['Multimodal ML', 'BERT', 'CNNs', 'TensorFlow', 'Scikit-learn', 'Ensemble Learning'], outcome: 'Email + URL + image classification with ensemble fusion',
     link: 'https://phishguard-ai-tau-one.vercel.app/', github: 'https://github.com/srisaktic/phishguard-ai', accent: 'teal',
   },
   {
     number: '03', title: 'Used Car Price Prediction', type: 'Regression model',
     description: 'A production-minded prediction app that turns messy vehicle listings into clear, useful pricing guidance for buyers and sellers.',
-    stack: ['Python', 'Scikit-learn', 'XGBoost', 'FastAPI', 'AWS EC2'], outcome: 'Approximately 90% R-squared on held-out data',
+    stack: ['Regression', 'XGBoost', 'Scikit-learn', 'FastAPI', 'Docker', 'AWS EC2'], outcome: 'Approximately 90% R-squared on held-out data',
     link: 'https://bmw-price-predictor-rhbypw6b6qntxdt9cszde8.streamlit.app/', github: 'https://github.com/srisaktic/bmw-price-predictor', accent: 'blue',
+  },
+  {
+    number: '04', title: 'House Price EDA — Boston Housing', type: 'Exploratory data analysis',
+    description: 'An end-to-end EDA on 506 homes to uncover what actually drives price — cleaning outliers, engineering features, and visualizing relationships across a 12-chart dashboard.',
+    stack: ['EDA', 'Feature Engineering', 'Pandas', 'Seaborn', 'Correlation Analysis', 'Outlier Detection'], outcome: 'Rooms and neighborhood status are the strongest price drivers',
+    link: '', github: 'https://github.com/srisaktic/house-price-eda-analysis', accent: 'green',
   },
 ];
 
@@ -67,9 +74,10 @@ const education = [
 ];
 
 const skills = [
-  { icon: Code2, label: 'Languages & Packages', value: 'Python, Java, SQL, MySQL, PostgreSQL, R, NumPy, Pandas, Matplotlib, Seaborn' },
-  { icon: Sparkles, label: 'AI & Machine Learning', value: 'Scikit-learn, XGBoost, TensorFlow, Keras, Hugging Face, BERT, NLP, CNNs, Random Forest' },
-  { icon: Database, label: 'Backend, APIs & DevOps', value: 'FastAPI, REST APIs, Flask, Spring Boot, Docker, AWS (EC2, Lambda, S3), CI/CD' },
+  { icon: Code2, label: 'Languages & Data', value: 'Python, SQL, Java, Pandas, NumPy, PostgreSQL' },
+  { icon: Sparkles, label: 'Machine Learning', value: 'Scikit-learn, XGBoost, TensorFlow/Keras, Hugging Face, NLP, Computer Vision, MLflow, SHAP' },
+  { icon: Bot, label: 'GenAI & Agentic AI', value: 'LLMs, RAG, AI Agents, Gemini, Qdrant, Voyage Embeddings, Reranking, Tool Calling' },
+  { icon: Database, label: 'Backend, Cloud & MLOps', value: 'FastAPI, REST APIs, Docker, AWS, GitHub Actions, CI/CD, Git' },
 ];
 
 type SubmitState = 'idle' | 'sending' | 'sent' | 'error';
@@ -262,12 +270,12 @@ function App() {
       </section>
 
       <section id="about" className="border-y border-white/10 bg-white/[0.03]">
-        <div className="mx-auto grid max-w-[1440px] gap-12 px-6 py-20 lg:grid-cols-[0.7fr_1.3fr] lg:px-12">
+        <div className="mx-auto max-w-[820px] px-6 py-16 lg:px-12">
           <Reveal><p className="section-kicker">01 / About</p><h2 className="section-title">Building intelligent systems.<br /><span>From data to deployment.</span></h2></Reveal>
-          <Reveal delay={100} className="max-w-2xl">
-            <p className="text-xl leading-9 text-white/75">I’m an AI/ML Engineer with a software engineering foundation, experienced across data analysis, machine learning, and production workflows. My journey has evolved from backend engineering to applied ML, and I currently support data science and forecasting workflows at Nestlé.</p>
-            <p className="mt-6 leading-8 text-white/55">I build end-to-end ML and GenAI systems spanning classification, regression, multimodal ML, RAG, and AI assistants — working with LLMs, vector databases, APIs, Docker, cloud deployment, and CI/CD. I’m currently expanding deeper into RAG and agentic AI systems.</p>
-            <div className="mt-9 grid grid-cols-2 gap-6 border-t border-white/10 pt-7 sm:grid-cols-4">
+          <Reveal delay={100} className="mt-8">
+            <p className="text-lg leading-8 text-white/75">I’m an AI/ML Engineer with a software engineering foundation, experienced across data analysis, machine learning, and production workflows. My journey has evolved from backend engineering to applied ML, and I currently support data science and forecasting workflows at Nestlé.</p>
+            <p className="mt-5 leading-7 text-white/55">I build end-to-end ML and GenAI systems spanning classification, regression, multimodal ML, RAG, and AI assistants — working with LLMs, vector databases, APIs, Docker, cloud deployment, and CI/CD. I’m currently expanding deeper into RAG and agentic AI systems.</p>
+            <div className="mt-8 grid grid-cols-2 gap-6 border-t border-white/10 pt-6 sm:grid-cols-4">
               <div><p className="stat-number">2+</p><p className="stat-label">years in tech</p></div>
               <div><p className="stat-number">ML + GenAI</p><p className="stat-label">core focus</p></div>
               <div><p className="stat-number">M.S.</p><p className="stat-label">Data Science</p></div>
@@ -277,12 +285,12 @@ function App() {
         </div>
       </section>
 
-      <section id="work" className="mx-auto max-w-[1440px] px-6 py-20 lg:px-12 lg:py-28">
-        <Reveal className="mb-12 flex items-end justify-between gap-6">
+      <section id="work" className="mx-auto max-w-[1440px] px-6 py-14 lg:px-12 lg:py-20">
+        <Reveal className="mb-8 flex items-end justify-between gap-6">
           <div><p className="section-kicker">02 / Selected work</p><h2 className="section-title">Things I’ve<br /><span>made useful.</span></h2></div>
           <a href="https://github.com/srisaktic" target="_blank" rel="noreferrer" className="hidden items-center gap-2 text-sm font-bold text-white transition hover:text-[#4fd8cf] md:flex">More on GitHub <ArrowUpRight size={16} /></a>
         </Reveal>
-        <div className="grid gap-5 lg:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {projects.map((project, index) => (
             <Reveal key={project.number} delay={index * 120}>
             <article
@@ -292,21 +300,23 @@ function App() {
             >
               <div className="flex items-start justify-between">
                 <span className="project-number">{project.number}</span>
-                <a href={project.link} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} demo`} className="grid h-11 w-11 place-items-center rounded-full border border-current/20 transition hover:rotate-45 hover:bg-white/20">
-                  <ArrowUpRight size={19} />
+                <a href={project.link || project.github} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} ${project.link ? 'demo' : 'code'}`} className="grid h-9 w-9 place-items-center rounded-full border border-current/20 transition hover:rotate-45 hover:bg-white/20">
+                  <ArrowUpRight size={16} />
                 </a>
               </div>
-              <div className="mt-24">
-                <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] opacity-65">{project.type}</p>
-                <h3 className="font-display text-3xl font-semibold leading-tight">{project.title}</h3>
-                <p className="mt-5 text-sm leading-7 opacity-80">{project.description}</p>
-                <p className="mt-6 flex items-start gap-2 border-t border-current/15 pt-5 text-sm font-semibold"><Check size={17} className="mt-0.5 shrink-0" /> {project.outcome}</p>
-                <div className="mt-6 flex flex-wrap gap-2">{project.stack.map((item) => <span key={item} className="rounded-full border border-current/20 px-3 py-1 text-[11px] font-semibold">{item}</span>)}</div>
-                <div className="mt-7 flex gap-3">
-                  <a href={project.link} target="_blank" rel="noreferrer" className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-current/10 px-4 py-3 text-xs font-bold uppercase tracking-wider transition hover:bg-current/20">
-                    <Play size={15} /> Live demo
-                  </a>
-                  <a href={project.github} target="_blank" rel="noreferrer" className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-current/20 px-4 py-3 text-xs font-bold uppercase tracking-wider transition hover:bg-current/15">
+              <div className="mt-8 flex flex-1 flex-col">
+                <p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] opacity-65">{project.type}</p>
+                <h3 className="font-display text-2xl font-semibold leading-tight">{project.title}</h3>
+                <p className="mt-3 text-sm leading-6 opacity-80">{project.description}</p>
+                <p className="mt-4 flex items-start gap-2 border-t border-current/15 pt-4 text-sm font-semibold"><Check size={17} className="mt-0.5 shrink-0" /> {project.outcome}</p>
+                <div className="mt-4 flex flex-wrap gap-2">{project.stack.map((item) => <span key={item} className="rounded-full border border-current/20 px-2.5 py-1 text-[11px] font-semibold">{item}</span>)}</div>
+                <div className="mt-auto flex gap-3 pt-5">
+                  {project.link && (
+                    <a href={project.link} target="_blank" rel="noreferrer" className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-current/10 px-4 py-2.5 text-xs font-bold uppercase tracking-wider transition hover:bg-current/20">
+                      <Play size={15} /> Live demo
+                    </a>
+                  )}
+                  <a href={project.github} target="_blank" rel="noreferrer" className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-current/20 px-4 py-2.5 text-xs font-bold uppercase tracking-wider transition hover:bg-current/15">
                     <Github size={15} /> Code
                   </a>
                 </div>
@@ -317,7 +327,7 @@ function App() {
         </div>
       </section>
 
-      <section id="experience" className="bg-[#102b36] text-white">
+      <section id="experience" className="border-y border-white/10 bg-white/[0.03]">
         <div className="mx-auto max-w-[1440px] px-6 py-20 lg:px-12 lg:py-28">
           <div className="grid gap-14 lg:grid-cols-[0.7fr_1.3fr]">
             <Reveal>
@@ -398,17 +408,36 @@ function App() {
               </div>
             </Reveal>
             <Reveal delay={120}>
-            <form onSubmit={handleSubmit} className="rounded-[1.5rem] bg-white/90 p-6 shadow-xl shadow-[#8b651b]/10 sm:p-8">
-              <div className="grid gap-5 sm:grid-cols-2">
-                <label className="field-label">Your name<input name="name" required placeholder="Jane Smith" className="field-input" /></label>
-                <label className="field-label">Your email<input name="email" type="email" required placeholder="jane@company.com" className="field-input" /></label>
+            <form onSubmit={handleSubmit} className="relative">
+              <div className="grid gap-7">
+                <label className="group block">
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#102b36]/50">Your name</span>
+                  <input name="name" required placeholder="Jane Smith" className="mt-2 w-full border-b-2 border-[#102b36]/20 bg-transparent pb-3 font-display text-2xl font-semibold text-[#102b36] outline-none transition placeholder:text-[#102b36]/30 focus:border-[#102b36]" />
+                </label>
+                <label className="group block">
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#102b36]/50">Your email</span>
+                  <input name="email" type="email" required placeholder="jane@company.com" className="mt-2 w-full border-b-2 border-[#102b36]/20 bg-transparent pb-3 font-display text-2xl font-semibold text-[#102b36] outline-none transition placeholder:text-[#102b36]/30 focus:border-[#102b36]" />
+                </label>
+                <label className="group block">
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#102b36]/50">Your message</span>
+                  <textarea name="message" required rows={2} placeholder="Tell me about the role, opportunity, or project..." className="mt-2 w-full resize-none border-b-2 border-[#102b36]/20 bg-transparent pb-3 text-lg leading-8 text-[#102b36] outline-none transition placeholder:text-[#102b36]/30 focus:border-[#102b36]" />
+                </label>
               </div>
-              <label className="field-label mt-5">Your message<textarea name="message" required rows={4} placeholder="Tell me about the role, opportunity, or project..." className="field-input resize-none" /></label>
-              <button type="submit" disabled={submitState === 'sending'} className="btn-shine mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-[#102b36] px-5 py-4 text-sm font-bold text-white transition hover:bg-[#2c8d89] disabled:opacity-60">
-                {submitState === 'sending' ? (<><Loader2 size={16} className="animate-spin" /> Sending...</>) : submitState === 'sent' ? (<><Check size={16} /> Message sent!</>) : (<>Send a message <Send size={16} /></>)}
-              </button>
-              {submitState === 'sent' && <p className="mt-3 text-center text-sm font-semibold text-[#2c8d89]">Thanks! I’ll get back to you soon.</p>}
-              {submitState === 'error' && <p className="mt-3 text-center text-sm font-semibold text-red-600">{errorMessage}</p>}
+              <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
+                {submitState === 'sent' ? (
+                  <p className="flex items-center gap-2 text-sm font-semibold text-[#102b36]"><Check size={16} /> Thanks! I’ll get back to you soon.</p>
+                ) : submitState === 'error' ? (
+                  <p className="text-sm font-semibold text-red-700">{errorMessage}</p>
+                ) : (
+                  <p className="text-sm text-[#102b36]/50">I read every message personally.</p>
+                )}
+                <button type="submit" disabled={submitState === 'sending'} className="group flex shrink-0 items-center gap-3 rounded-full bg-[#102b36] py-2 pl-6 pr-2 text-sm font-bold text-white transition hover:bg-white hover:text-[#102b36] disabled:opacity-60">
+                  {submitState === 'sending' ? 'Sending' : 'Send message'}
+                  <span className="grid h-10 w-10 place-items-center rounded-full bg-white/15 transition group-hover:bg-[#102b36]/10">
+                    {submitState === 'sending' ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
+                  </span>
+                </button>
+              </div>
             </form>
             </Reveal>
           </div>
