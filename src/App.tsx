@@ -49,16 +49,16 @@ const projects = [
 
 const experience = [
   {
-    period: 'June 2026 — Present', role: 'Software Engineer', company: 'Nestlé', location: 'VA, USA', logo: 'NE', color: '#e0ae47',
-    description: 'Supporting data science and demand-forecasting workflows through data analysis, pipeline development, data validation, and production model-output checks, while collaborating closely with data scientists.',
+    period: 'June 2026 — Present', role: 'Data Scientist / ML Engineer', company: 'Mellowsoft', client: 'Nestlé', location: 'VA, USA', logo: 'ME', color: '#e0ae47',
+    description: 'Contributed to a Nestlé demand forecasting and supply-chain analytics project, working with sales, inventory, promotional, and seasonal data. Built features and evaluated ARIMA, XGBoost, and LSTM-based forecasting approaches using Python and SQL to support inventory planning.',
   },
   {
-    period: 'August 2025 — May 2026', role: 'AI / Machine Learning Engineer', company: 'AIONIX11', location: 'CT, USA', logo: 'AX', color: '#4fd8cf',
-    description: 'Built end-to-end machine learning solutions, covering data preparation, model development and evaluation, API integration, Docker deployment, AWS, and CI/CD workflows.',
+    period: 'August 2025 — May 2026', role: 'Machine Learning / Data Science Intern', company: 'AIONIX11', location: 'CT, USA', logo: 'AX', color: '#4fd8cf',
+    description: 'Worked on an internal support-ticket intelligence system, analyzing historical ticket data and developing NLP classification models using Python, Pandas, SQL, TF-IDF, Logistic Regression, and XGBoost. Exposed model predictions through a lightweight FastAPI service.',
   },
   {
     period: 'February 2022 — May 2023', role: 'Associate Software Engineer', company: 'Hexaware Technologies Ltd', location: 'Chennai, India', logo: 'HX', color: '#8fd1a4',
-    description: 'Developed and supported Python backend applications using REST APIs and SQL, working across application development, database integration, testing, and production support and supporting CI/CD releases.',
+    description: 'Supported US Life & Health insurance applications with a focus on QA automation, API validation, and backend testing. Automated regression workflows using Python, Selenium, and PyTest, validated REST APIs with Postman, and performed database checks using SQL Server, Git, and Jenkins.',
   },
 ];
 
@@ -349,6 +349,7 @@ function App() {
                         <div>
                           <h3 className="font-display text-xl font-semibold text-white">{item.company}</h3>
                           <p className="mt-0.5 text-sm font-semibold" style={{ color: item.color }}>{item.role}</p>
+                          {item.client && <p className="mt-0.5 text-xs text-white/40">Client: {item.client}</p>}
                         </div>
                       </div>
                       <div className="flex flex-col items-end gap-1.5">
