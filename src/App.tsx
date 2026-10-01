@@ -49,7 +49,7 @@ const projects = [
 
 const experience = [
   {
-    period: 'June 2026 — Present', role: 'Data Scientist / ML Engineer', company: 'Mellowsoft', client: 'Nestlé', location: 'VA, USA', logo: 'ME', color: '#e0ae47',
+    period: 'June 2026 — Present', role: 'Software Engineer', company: 'Mellowsoft', client: 'Nestlé', location: 'VA, USA', logo: 'ME', color: '#e0ae47',
     description: 'Contributed to a Nestlé demand forecasting and supply-chain analytics project, working with sales, inventory, promotional, and seasonal data. Built features and evaluated ARIMA, XGBoost, and LSTM-based forecasting approaches using Python and SQL to support inventory planning.',
   },
   {
